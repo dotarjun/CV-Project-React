@@ -1,10 +1,13 @@
+import Header from "./Components/header.js";
+import Footer from "./Components/footer.js";
 
 function App() {
   return (
-    <div className="App">
-      <form>
-        
-      </form>
+    <div>
+      <Header />
+      <main>
+      </main>
+      <Footer />
     </div>
   );
 }
