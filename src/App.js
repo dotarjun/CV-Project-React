@@ -1,12 +1,12 @@
 import Header from "./Components/header.js";
+import Main from "./Components/main.js";
 import Footer from "./Components/footer.js";
 
 function App() {
   return (
     <div>
       <Header />
-      <main>
-      </main>
+      <Main />
       <Footer />
     </div>
   );
