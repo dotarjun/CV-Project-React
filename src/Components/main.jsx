@@ -7,12 +7,12 @@ import Skills from './Main Components/skills';
 
 export default function Main() {
   return (
-    <div>
+    <main className="bg-neutral min-w-full min-h-full prose">
       <UserInfo />
       <Contact />
       <Experience />
       <Projects />
       <Skills />
-    </div>
+    </main>
   );
 }
