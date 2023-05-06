@@ -1,5 +1,3 @@
-Sure, I'd be happy to help you generate a more complete README file for the CV Creator project built using Tailwind, Daisy UI, and React. Here's a template you can use, written in Markdown format:
-
 # CV Creator Project using Tailwind, Daisy UI, and React
 
 This project is a CV Creator built using Tailwind, Daisy UI, and React. It allows users to create and download a CV by filling out a form with their personal information, education, work experience, skills, and other relevant details.
