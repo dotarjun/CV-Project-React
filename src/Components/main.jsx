@@ -4,6 +4,7 @@ import Contact from './Main Components/contact';
 import Experience from './Main Components/experience';
 import Projects from './Main Components/projects';
 import Skills from './Main Components/skills';
+import Save from './save';
 
 export default function Main() {
   return (
@@ -13,6 +14,7 @@ export default function Main() {
       <Experience />
       <Projects />
       <Skills />
+      <Save />
     </main>
   );
 }
