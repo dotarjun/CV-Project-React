@@ -4,9 +4,12 @@ import Contact from './Main Components/contact';
 import Experience from './Main Components/experience';
 // import Projects from './Main Components/projects';
 // import Skills from './Main Components/skills';
-import Save from './save';
+// import Save from './save';
 
 export default function Main() {
+  const handleClick = (e) => {
+    e.preventDefault();
+  };
   return (
     <main className="bg-neutral min-w-full min-h-full prose">
       <form className="mx-8">
@@ -15,8 +18,8 @@ export default function Main() {
         <Contact />
         {/* <Projects /> */}
         {/* <Skills /> */}
-        <Save />
-        <button type="submit" className="btn btn-accent btn-block my-4">Submit</button>
+        {/* <Save /> */}
+        <button type="submit" className="btn btn-accent btn-block my-4" onClick={handleClick}>Submit</button>
       </form>
     </main>
   );
