@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import Input from './input';
 
-export const [JobTitle, setJobTitle] = useState('');
-export const [FromDate, setFromDate] = useState('');
-export const [ToDate, setToDate] = useState('');
 
-function Experience() {
+function Experience(jobTitle, fromDate, toDate) {
+  const [JobTitle, setJobTitle] = useState(jobTitle);
+  const [FromDate, setFromDate] = useState(fromDate);
+  const [ToDate, setToDate] = useState(toDate);
+
+
+
   return (
     <div>
       <div className="flex flex-row justify-between items-center">

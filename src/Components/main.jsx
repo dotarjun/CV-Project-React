@@ -1,7 +1,7 @@
 import React from 'react';
 import UserInfo from './Main Components/userInfo';
 import Contact from './Main Components/contact';
-import Experience, { ToDate } from './Main Components/experience';
+import Experience from './Main Components/experience';
 // import WorkExp, { ToDate } from './Main Components/workExp';
 // import Projects from './Main Components/projects';
 // import Skills from './Main Components/skills';
@@ -11,7 +11,8 @@ export default function Main() {
   // const [InputValue, setInputValue] = useState('');
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(ToDate);
+    // eslint-disable-next-line no-console
+    // console.log(ToDate);
   };
 
   return (
@@ -20,6 +21,7 @@ export default function Main() {
         <UserInfo />
         <Experience />
         <Contact />
+
         {/* <Projects /> */}
         {/* <Skills /> */}
         {/* <Save /> */}
