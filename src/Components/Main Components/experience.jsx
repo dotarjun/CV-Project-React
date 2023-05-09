@@ -1,13 +1,30 @@
 import React, { useState } from 'react';
 import Input from './input';
 
+function Experience() {
+  const [JobTitle, setJobTitle] = useState('');
+  const [Company, setCompany] = useState('');
+  const [FromDate, setFromDate] = useState('');
+  const [ToDate, setToDate] = useState('');
+  const [Description, setDescription] = useState('');
+  const [Experiences, setExperiences] = useState([]);
 
-function Experience(jobTitle, fromDate, toDate) {
-  const [JobTitle, setJobTitle] = useState(jobTitle);
-  const [FromDate, setFromDate] = useState(fromDate);
-  const [ToDate, setToDate] = useState(toDate);
-
-
+  const handleAddExperience = () => {
+    const newExperience = {
+      JobTitle,
+      Company,
+      FromDate,
+      ToDate,
+      Description,
+    };
+    setExperiences(Experiences.concat(newExperience));
+    setJobTitle('');
+    setCompany('');
+    setFromDate('');
+    setToDate('');
+    setDescription('');
+    console.log(Experiences);
+  };
 
   return (
     <div>
@@ -19,7 +36,13 @@ function Experience(jobTitle, fromDate, toDate) {
       <div className="flex flex-col my-6 gap-2">
         <Input
           onChange={(e) => setJobTitle(e.target.value)}
-          placeholder="Title"
+          placeholder="Job Title"
+          value={JobTitle}
+        />
+        <Input
+          onChange={(e) => setCompany(e.target.value)}
+          placeholder="Company Name"
+          value={Company}
         />
         <div className="flex items-center content-around justify-around">
           <span className="text-xl">From:</span>
@@ -27,18 +50,51 @@ function Experience(jobTitle, fromDate, toDate) {
             onChange={(e) => setFromDate(e.target.value)}
             type="date"
             id="from"
+            value={FromDate}
           />
           <span className="text-xl">To:</span>
           <Input
             onChange={(e) => setToDate(e.target.value)}
             type="date"
             id="to"
+            value={ToDate}
           />
         </div>
-        <textarea className="textarea textarea-lg my-2" name="description" placeholder="Description" />
+        <textarea
+          className="textarea textarea-lg my-2"
+          name="description"
+          placeholder="Description"
+          value={Description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
       </div>
 
-      <button type="button" className="btn btn-block bg-base-100 hover:border-base-content hover:border-2 hover:bg-base-100 hover:border-opacity-30  text-2xl">+</button>
+      <button
+        type="button"
+        className="btn btn-block bg-base-100 hover:border-base-content hover:border-2 hover:bg-base-100 hover:border-opacity-30  text-2xl"
+        onClick={handleAddExperience}
+      >
+        +
+      </button>
+      {Experiences.length > 0 ? (
+
+        Experiences.map((experience, index) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <div key={index}>
+            <h4>{experience.jobTitle}</h4>
+            <p>
+              {experience.fromDate}
+              {' '}
+              -
+              {' '}
+              {experience.toDate}
+            </p>
+            <p>{experience.description}</p>
+          </div>
+        ))
+      ) : (
+        <p>No Experience yet.</p>
+      )}
     </div>
   );
 }
