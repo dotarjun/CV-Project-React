@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Input from './input';
 
 function Experience() {
   const [JobTitle, setJobTitle] = useState('');
@@ -37,30 +36,38 @@ function Experience() {
       </div>
 
       <div className="flex flex-col my-6 gap-2">
-        <Input
+        <input
           onChange={(e) => setJobTitle(e.target.value)}
           placeholder="Job Title"
           value={JobTitle}
+          className="input input-lg my-2"
+          name="jobTitle"
         />
-        <Input
+        <input
           onChange={(e) => setCompany(e.target.value)}
           placeholder="Company Name"
           value={Company}
+          className="input input-lg my-2"
+          name="companyName"
         />
         <div className="flex items-center content-around justify-around">
           <span className="text-xl">From:</span>
-          <Input
+          <input
             onChange={(e) => setFromDate(e.target.value)}
             type="date"
             id="from"
             value={FromDate}
+            className="input input-lg my-2"
+            name="fromDate"
           />
           <span className="text-xl">To:</span>
-          <Input
+          <input
             onChange={(e) => setToDate(e.target.value)}
             type="date"
             id="to"
             value={ToDate}
+            className="input input-lg my-2"
+            name="toDate"
           />
         </div>
         <textarea
