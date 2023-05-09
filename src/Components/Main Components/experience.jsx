@@ -17,15 +17,18 @@ function Experience() {
       ToDate,
       Description,
     };
-    setExperiences(Experiences.concat(newExperience));
+    if (Array.isArray(Experiences)) {
+      setExperiences(Experiences.concat(newExperience));
+    } else {
+      setExperiences([newExperience]);
+    }
     setJobTitle('');
     setCompany('');
     setFromDate('');
     setToDate('');
     setDescription('');
-    console.log(Experiences);
   };
-
+  console.log(Experiences);
   return (
     <div>
       <div className="flex flex-row justify-between items-center">
@@ -81,15 +84,15 @@ function Experience() {
         Experiences.map((experience, index) => (
           // eslint-disable-next-line react/no-array-index-key
           <div key={index}>
-            <h4>{experience.jobTitle}</h4>
+            <h4>{experience.JobTitle}</h4>
             <p>
-              {experience.fromDate}
+              {experience.FromDate}
               {' '}
               -
               {' '}
-              {experience.toDate}
+              {experience.ToDate}
             </p>
-            <p>{experience.description}</p>
+            <p>{experience.Description}</p>
           </div>
         ))
       ) : (
