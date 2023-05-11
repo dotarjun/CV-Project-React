@@ -40,7 +40,7 @@ function UserInfo() {
         <textarea
           className="textarea textarea-lg my-2"
           name="bio"
-          placeholder="Bio"
+          placeholder="About you"
           value={Bio}
           onChange={(e) => (setBio(e.target.value))}
         />
