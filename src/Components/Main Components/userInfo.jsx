@@ -9,7 +9,6 @@ function UserInfo() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     setupdateUserInfo({
       Name,
       Position,
