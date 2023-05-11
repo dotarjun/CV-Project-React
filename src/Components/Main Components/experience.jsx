@@ -5,7 +5,6 @@ function Experience() {
   const [Company, setCompany] = useState('');
   const [FromDate, setFromDate] = useState('');
   const [ToDate, setToDate] = useState('');
-  const [Description, setDescription] = useState('');
   const [Experiences, setExperiences] = useState([]);
 
   const handleAddExperience = () => {
@@ -14,7 +13,6 @@ function Experience() {
       Company,
       FromDate,
       ToDate,
-      Description,
     };
 
     if (Array.isArray(Experiences)) {
@@ -27,7 +25,6 @@ function Experience() {
     setCompany('');
     setFromDate('');
     setToDate('');
-    setDescription('');
   };
 
   return (
@@ -71,13 +68,6 @@ function Experience() {
             name="toDate"
           />
         </div>
-        <textarea
-          className="textarea textarea-lg my-2"
-          name="description"
-          placeholder="Description"
-          value={Description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
       </div>
 
       <button
@@ -88,7 +78,6 @@ function Experience() {
         +
       </button>
       {Experiences.length > 0 ? (
-
         Experiences.map((experience, index) => (
           // eslint-disable-next-line react/no-array-index-key
           <div key={index}>
