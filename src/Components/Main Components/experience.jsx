@@ -16,18 +16,20 @@ function Experience() {
       ToDate,
       Description,
     };
+
     if (Array.isArray(Experiences)) {
       setExperiences(Experiences.concat(newExperience));
     } else {
       setExperiences([newExperience]);
     }
+
     setJobTitle('');
     setCompany('');
     setFromDate('');
     setToDate('');
     setDescription('');
   };
-  console.log(Experiences);
+
   return (
     <div>
       <div className="flex flex-row justify-between items-center">
