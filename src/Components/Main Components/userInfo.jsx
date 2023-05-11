@@ -5,18 +5,17 @@ function UserInfo() {
   const [Name, setName] = useState('');
   const [Position, setPosition] = useState('');
   const [Bio, setBio] = useState('');
-  const [UInfo, setUInfo] = useState([]);
+  const [updateUserInfo, setupdateUserInfo] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    setUInfo({
+    setupdateUserInfo({
       Name,
       Position,
       Bio,
     });
   };
-  console.log(UInfo);
 
   return (
     <div>
