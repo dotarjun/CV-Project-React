@@ -27,12 +27,14 @@ function UserInfo() {
           className="input input-lg"
           value={Name}
           onChange={(e) => (setName(e.target.value))}
+          required
         />
         <input
           placeholder="Position"
           className="input input-lg"
           value={Position}
           onChange={(e) => (setPosition(e.target.value))}
+          required
         />
         <textarea
           className="textarea textarea-lg my-2"
@@ -40,6 +42,7 @@ function UserInfo() {
           placeholder="About you"
           value={Bio}
           onChange={(e) => (setBio(e.target.value))}
+          required
         />
         <button
           type="submit"
