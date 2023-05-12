@@ -5,7 +5,7 @@ function UserInfo() {
   const [Name, setName] = useState('');
   const [Position, setPosition] = useState('');
   const [Bio, setBio] = useState('');
-  const [updateUserInfo, setupdateUserInfo] = useState([]);
+  const [updateUserInfo, setupdateUserInfo] = useState({});
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
