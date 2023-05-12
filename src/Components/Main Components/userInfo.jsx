@@ -6,14 +6,21 @@ function UserInfo() {
   const [Position, setPosition] = useState('');
   const [Bio, setBio] = useState('');
   const [updateUserInfo, setupdateUserInfo] = useState([]);
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     setupdateUserInfo({
       Name,
       Position,
       Bio,
     });
+
+    setName('');
+    setPosition('');
+    setBio('');
+    setSubmitted(true);
   };
 
   return (
@@ -21,7 +28,10 @@ function UserInfo() {
       <div className="flex flex-row justify-between items-center">
         <h3 className="">Personal Information</h3>
       </div>
-      <form className="flex flex-col my-6 gap-2" onSubmit={handleSubmit}>
+      <form
+        className={`flex flex-col my-6 gap-2 ${submitted ? 'hidden' : ''}`}
+        onSubmit={handleSubmit}
+      >
         <input
           placeholder="Name"
           className="input input-lg"
@@ -46,7 +56,7 @@ function UserInfo() {
         />
         <button
           type="submit"
-          className="btn btn-block bg-base-100 hover:border-base-content hover:border-2 hover:bg-base-100 hover:border-opacity-30  text-sm text-"
+          className="btn btn-block bg-base-100 hover:border-base-content hover:border-2 hover:bg-base-100 hover:border-opacity-30  text-sm "
         >
           Save
         </button>
