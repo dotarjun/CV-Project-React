@@ -20,8 +20,6 @@ function UserInfo() {
     <div>
       <div className="flex flex-row justify-between items-center">
         <h3 className="">Personal Information</h3>
-        {/* <SaveIcon className=" w-9 h-9 fill-accent shadow-
-        inner shadow-slate-700 cursor-pointer" /> */}
       </div>
       <form className="flex flex-col my-6 gap-2" onSubmit={handleSubmit}>
         <input
