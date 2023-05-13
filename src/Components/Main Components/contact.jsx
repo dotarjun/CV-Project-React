@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Save from './save';
 
 function Contact() {
   const [Email, setEmail] = useState('');
@@ -14,7 +15,7 @@ function Contact() {
       LinkedIn,
     });
   };
-  console.log(UserContactInfo);
+
   return (
     <div>
       <div className="flex flex-row justify-between items-center">
@@ -43,12 +44,7 @@ function Contact() {
           value={LinkedIn}
           onChange={(e) => (setLinkedIn(e.target.value))}
         />
-        <button
-          type="submit"
-          className="btn btn-block bg-base-100 hover:border-base-content hover:border-2 hover:bg-base-100 hover:border-opacity-30  text-sm text-"
-        >
-          Save
-        </button>
+        <Save />
       </form>
     </div>
   );

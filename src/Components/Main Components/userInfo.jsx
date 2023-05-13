@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
+import Save from './save';
 
 function UserInfo() {
   const [Name, setName] = useState('');
@@ -71,12 +72,7 @@ function UserInfo() {
             onChange={(e) => (setBio(e.target.value))}
             required
           />
-          <button
-            type="submit"
-            className="btn btn-block bg-base-100 hover:border-base-content hover:border-2 hover:bg-base-100 hover:border-opacity-30  text-sm "
-          >
-            Save
-          </button>
+          <Save />
         </form>
       ) : (
         <div>

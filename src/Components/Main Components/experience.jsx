@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Save from './save';
 
 function Experience() {
   const [JobTitle, setJobTitle] = useState('');
@@ -77,6 +78,7 @@ function Experience() {
       >
         +
       </button>
+      <Save />
       {Experiences.length > 0 ? (
         Experiences.map((experience, index) => (
           // eslint-disable-next-line react/no-array-index-key
