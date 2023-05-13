@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Save from './save';
-// import Edit from './edit';
+import Edit from './edit';
 
 function Contact() {
   const [Email, setEmail] = useState('');
@@ -34,15 +34,7 @@ function Contact() {
     <div>
       <div className="flex flex-row justify-between items-center">
         <h3 className="">Contact</h3>
-        {!Editing && submitted && (
-        <button
-          className="btn btn-sm"
-          onClick={handleEdit}
-          type="button"
-        >
-          Edit
-        </button>
-        )}
+        {!Editing && submitted && (<Edit handleEdit={handleEdit} />)}
       </div>
       {!submitted || Editing ? (
         <form className="flex flex-col my-6 gap-2" onSubmit={handleSubmit}>
