@@ -6,14 +6,14 @@ function UserInfo() {
   const [Name, setName] = useState('');
   const [Position, setPosition] = useState('');
   const [Bio, setBio] = useState('');
-  const [updateUserInfo, setupdateUserInfo] = useState({});
+  const [UserPersonalInfo, setUserPersonalInfo] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [Editing, setEditing] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    setupdateUserInfo({
+    setUserPersonalInfo({
       Name,
       Position,
       Bio,
@@ -80,15 +80,15 @@ function UserInfo() {
             <div>
               <p>
                 Name:
-                {` ${updateUserInfo.Name}`}
+                {` ${UserPersonalInfo.Name}`}
               </p>
               <p>
                 Position:
-                {` ${updateUserInfo.Position}`}
+                {` ${UserPersonalInfo.Position}`}
               </p>
               <p>
                 Bio:
-                {` ${updateUserInfo.Bio}`}
+                {` ${UserPersonalInfo.Bio}`}
               </p>
             </div>
           )}
