@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Save from './save';
+// import Edit from './edit';
 
 function Contact() {
   const [Email, setEmail] = useState('');
@@ -7,6 +8,7 @@ function Contact() {
   const [LinkedIn, setLinkedIn] = useState('');
   const [UserContactInfo, setUserContactInfo] = useState([]);
   const [submitted, setSubmitted] = useState(false);
+  const [Editing, setEditing] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,15 +23,28 @@ function Contact() {
     setGithub('');
     setLinkedIn('');
     setSubmitted(true);
+    setEditing(false);
+  };
+
+  const handleEdit = () => {
+    setEditing(true);
   };
 
   return (
     <div>
       <div className="flex flex-row justify-between items-center">
         <h3 className="">Contact</h3>
-        <div className="shadow-md shadow-slate-950 w-8 h-8 cursor-pointer hover:shadow-slate-950 hover:shadow-xl" />
+        {!Editing && submitted && (
+        <button
+          className="btn btn-sm"
+          onClick={handleEdit}
+          type="button"
+        >
+          Edit
+        </button>
+        )}
       </div>
-      {!submitted ? (
+      {!submitted || Editing ? (
         <form className="flex flex-col my-6 gap-2" onSubmit={handleSubmit}>
           <input
             type="text"
