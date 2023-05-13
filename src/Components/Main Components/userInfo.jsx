@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import Save from './save';
+import Edit from './edit';
 
 function UserInfo() {
   const [Name, setName] = useState('');
@@ -34,15 +35,8 @@ function UserInfo() {
     <div>
       <div className="flex flex-row justify-between items-center">
         <h3 className="">Personal Information</h3>
-        {!Editing && submitted && (
-          <button
-            className="btn btn-sm"
-            onClick={handleEdit}
-            type="button"
-          >
-            Edit
-          </button>
-        )}
+        {!Editing && submitted && (<Edit handleEdit={handleEdit} />)}
+
       </div>
 
       {!submitted || Editing ? (
