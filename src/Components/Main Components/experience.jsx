@@ -11,23 +11,37 @@ function Experience() {
   const [AddingExperience, setAddingExperience] = useState(true);
   // const [Editing, setEditing] = useState(false);
 
-  const handleSubmit = () => {
-    setSubmitted(true);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!AddingExperience) {
+      setExperiences((prevExperiences) => [...prevExperiences, {
+        JobTitle,
+        Company,
+        FromDate,
+        ToDate,
+      }]);
+      setAddingExperience(true);
+      setJobTitle('');
+      setCompany('');
+      setFromDate('');
+      setToDate('');
+    }
   };
 
   const handleAddExperience = () => {
-    const newExperience = {
-      JobTitle,
-      Company,
-      FromDate,
-      ToDate,
-    };
-
-    setExperiences((prevExperiences) => [...prevExperiences, newExperience]);
-    setJobTitle('');
-    setCompany('');
-    setFromDate('');
-    setToDate('');
+    if (!AddingExperience) {
+      setExperiences((prevExperiences) => [...prevExperiences, {
+        JobTitle,
+        Company,
+        FromDate,
+        ToDate,
+      }]);
+      setJobTitle('');
+      setCompany('');
+      setFromDate('');
+      setToDate('');
+    }
   };
 
   const handleSave = () => {
@@ -41,51 +55,49 @@ function Experience() {
         <h3 className="">Experience</h3>
       </div>
 
-      {!submitted ? (
-        <form
-          className="flex flex-col my-6 gap-2"
-          onSubmit={handleSubmit}
-
-        >
+      <form
+        className="flex flex-col my-6 gap-2"
+        onSubmit={handleSubmit}
+      >
+        <input
+          onChange={(e) => setJobTitle(e.target.value)}
+          placeholder="Job Title"
+          value={JobTitle}
+          className="input input-lg my-2"
+          name="jobTitle"
+          required
+        />
+        <input
+          onChange={(e) => setCompany(e.target.value)}
+          placeholder="Company Name"
+          value={Company}
+          className="input input-lg my-2"
+          name="companyName"
+          required
+        />
+        <div className="flex items-center content-around justify-around">
+          <span className="text-xl">From:</span>
           <input
-            onChange={(e) => setJobTitle(e.target.value)}
-            placeholder="Job Title"
-            value={JobTitle}
+            onChange={(e) => setFromDate(e.target.value)}
+            type="date"
+            id="from"
+            value={FromDate}
             className="input input-lg my-2"
-            name="jobTitle"
+            name="fromDate"
             required
           />
+          <span className="text-xl">To:</span>
           <input
-            onChange={(e) => setCompany(e.target.value)}
-            placeholder="Company Name"
-            value={Company}
+            onChange={(e) => setToDate(e.target.value)}
+            type="date"
+            id="to"
+            value={ToDate}
             className="input input-lg my-2"
-            name="companyName"
+            name="toDate"
             required
           />
-          <div className="flex items-center content-around justify-around">
-            <span className="text-xl">From:</span>
-            <input
-              onChange={(e) => setFromDate(e.target.value)}
-              type="date"
-              id="from"
-              value={FromDate}
-              className="input input-lg my-2"
-              name="fromDate"
-              required
-            />
-            <span className="text-xl">To:</span>
-            <input
-              onChange={(e) => setToDate(e.target.value)}
-              type="date"
-              id="to"
-              value={ToDate}
-              className="input input-lg my-2"
-              name="toDate"
-              required
-            />
-          </div>
-          {AddingExperience && (
+        </div>
+        {AddingExperience && (
           <button
             type="button"
             className="btn btn-block bg-base-100 hover:border-base-content hover:border-2 hover:bg-base-100 hover:border-opacity-30  text-2xl"
@@ -93,19 +105,22 @@ function Experience() {
           >
             +
           </button>
-          )}
+        )}
 
-          <Save className={handleSave} />
-        </form>
-      ) : (
-        Experiences.map((experience, index) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <div key={index}>
-            <h4>{experience.JobTitle}</h4>
-            <p>{`${experience.FromDate} - ${experience.ToDate}`}</p>
-            <p>{experience.Description}</p>
-          </div>
-        ))
+        <Save onClick={handleSave} />
+      </form>
+
+      {Experiences.length > 0 && (
+        <>
+          {Experiences.map((experience, index) => (
+            // eslint-disable-next-line react/no-array-index-key
+            <div key={index}>
+              <h4>{experience.JobTitle}</h4>
+              <p>{`${experience.FromDate} - ${experience.ToDate}`}</p>
+              <p>{experience.Description}</p>
+            </div>
+          ))}
+        </>
       )}
 
     </div>
