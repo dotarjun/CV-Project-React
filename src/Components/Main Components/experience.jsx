@@ -9,7 +9,6 @@ function Experience() {
   const [Experiences, setExperiences] = useState([]);
   const [submitted, setSubmitted] = useState(false);
   const [AddingExperience, setAddingExperience] = useState(true);
-  // const [Editing, setEditing] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
