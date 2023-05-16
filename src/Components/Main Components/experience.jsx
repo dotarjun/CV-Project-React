@@ -7,7 +7,7 @@ function Experience() {
   const [FromDate, setFromDate] = useState('');
   const [ToDate, setToDate] = useState('');
   const [Experiences, setExperiences] = useState([]);
-  const [submitted, setSubmitted] = useState(false);
+  // const [submitted, setSubmitted] = useState(false);
   const [AddingExperience, setAddingExperience] = useState(true);
 
   const handleSubmit = (e) => {
